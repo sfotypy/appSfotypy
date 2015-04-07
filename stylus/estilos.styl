@@ -1,5 +1,16 @@
+@import "nib"
 @import "normalize.styl"
 @import "fonts.styl"
+
+r-prefixes = webkit o moz ms official
+//----mixins
+//animacion(parametro)
+//	-webkit-animation parametro
+//	-moz-animation parametro
+//	-o-animation parametro
+//	-ms-animation parametro
+//	animation parametro
+
 
 gris_oscuro = #333333
 gris_claro = #818181
@@ -87,6 +98,9 @@ ul
 .left
 	float left
 .logo
+	padding 1.3em 0
+	overflow hidden
+	background white
 	display none
 .menu
 	display none
@@ -101,8 +115,18 @@ ul
 		width 20em
 		margin 0 auto
 .playlist
+	
+.playlist
 	display none
-
+	width 22em
+	padding 0 2em
+	border-left 1px solid gris_claro
+	.list
+		list-style none
+	.item
+		padding 1em 0
+	.action
+		font-size .8em
 .progress
 	margin 1em 0
 	position relative
@@ -128,6 +152,11 @@ ul
 		width 30%
 		border-radius 5px
 		position relative
+		animation 250s state infinite linear
+		//animacion(1s state infinite)
+		//ms: ie
+		//o: opera
+		//moz:mozila
 	.circle
 		height 10px
 		width 10px
@@ -136,6 +165,8 @@ ul
 		position absolute
 		right 0
 		top -2px
+		animation 1s circle infinite
+		//animacion(1s circle infinite)
 .relative
 	position relative
 .right
@@ -164,6 +195,29 @@ ul
 .wrap
 	width 1000px
 
+//----Keyfames
+@keyframes state
+	0%
+		width 0
+	100%
+		width 100%
+	//from
+	//to
+
+@keyframes circle
+	0%
+		-webkit-transform scale(1)
+		-moz-transform scale(1)
+		-o-transform scale(1)
+		-ms-transform scale(1)
+		transform scale(1)
+	100%
+		-webkit-transform scale(2)
+		-moz-transform scale(2)
+		-o-transform scale(2)
+		-ms-transform scale(2)
+		transform scale(2)
+//----Responsive
 @media screen and (min-width:480px)
 	.song
 		&:nth-child(even)
@@ -192,9 +246,6 @@ ul
 	.isotipo
 		width 122px
 	.logo
-		padding 1.3em 0
-		overflow hidden
-		background white
 		display block
 	.menu
 		display block
@@ -219,22 +270,13 @@ ul
 		.description
 			display none
 	.playing
-		padding-top 2em
+		padding-top 1.3em
 		&.large
 			margin 0 auto
 			width 62.5em
 			overflow hidden
 	.playlist
 		display block
-		width 22em
-		padding 0 2em
-		border-left 1px solid gris_claro
-		.list
-			list-style none
-		.item
-			padding 1em 0
-		.action
-			font-size .8em
 
 	.username
 		color gris_claro
