@@ -83,9 +83,9 @@
 					</p>
 				</div>
 				<div class="play center-text padding-tb">
-					<a class="action gray icon icon-previous"></a>
-					<a class="action gray icon icon-play2"></a>
-					<a class="action gray icon icon-next"></a>
+					<a class="action gray icon icon-previous" id="prev"></a>
+					<a class="action gray icon icon-play2" id="play"></a>
+					<a class="action gray icon icon-next" id="next"></a>
 					<a class="action gray icon icon-shuffle"></a>
 					<a class="action gray icon icon-bullhorn"></a>
 				</div>
@@ -152,7 +152,7 @@
 			</ul>
 		</div>
 	</section>
-	<section class="container">
+	<section class="container" id="lista">
 		<article class="song">
 			<figure class="image">
 				<img src="img/songs/girl_pharrel_williams.jpg" width="128" height="128" alt="Girl Pharrel Williams">
@@ -286,6 +286,26 @@
 			</p>
 		</article>
 	</section>
+	<section class="container padding-container" id="list">
+		<script type="html/x-handlebars" id="song-tmpl">
+			{{#each songs}}
+			<article class="song" data-id="{{@index}}">
+				<figure class="image">
+					<img src="{{img}}" width="128" height="128" title="{{artist}}">
+				</figure>
+				<p class="name">
+					{{name}}
+				</p>
+				<p class="author">
+					{{artist}}
+				</p>	
+			</article>
+			{{/each}}
+		</script>
+	</section>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="js/lib/handlebars.js"></script>
+	<script src="js/lib/observable.js"></script>
+	<script src="js/player-mvc.js"></script>
 </body>
 </html>
